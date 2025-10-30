@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"]{background-color:aquamarine;}
+        h2:hover{color:red;}
+        h2:active{color:blue;}
+        li{list-style-type:none;
+            float:left; padding:15px; background-color: chocolate;}
+        li:first-child{border-radius: 10px 0 0 10px;}
+        li:last-child{border-radius: 0 10px 10px 0;}
+
+        li:nth-child(odd){background-color: aquamarine;} /*odd=2n+1*/
+        li:nth-child(even){background-color:blueviolet;} /*even=2n*/
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>인풋타입공간</legend>
+        <label for="text">별명</label>
+        <input type="text" name="" id="text" placeholder="별명입니다">
+        <label for="password">기밀</label>
+        <input type="password" name="" id="password" placeholder="기밀입니다">
+    </fieldset>
+    <fieldset>
+        <legend>반응선택자</legend>
+        <h2>모카무스</h2>
+    </fieldset>
+    <ul>
+        <li>apple</li>
+        <li>book</li>
+        <li>cat</li>
+        <li>dog</li>
+        <li>elephant</li>
+        <li>frog</li>
+        <li>gorilla</li>
+        <li>horang-e</li>
+    </ul>
+</body>
+</html>
