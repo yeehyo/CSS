@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article{
+            width: 800px;
+            height: 600px;
+        }
+        .공간 {
+            padding: 40px;
+            background-color: #c0c0aa;
+            background-image: url('./lemon-posset.jpg');
+            background-size: 100% 300px;
+            /*background-size:cover; contain - 좌 우 폭에 따라 비율 조정 맞추려 함, cover - 상 하 좌 우 모든 공간에 채워지려 함*/
+            /*background-repeat:no-repeat;  반복*/
+            /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #1cefff, #c0c0aa);
+            /* Chrome 10-25, Safari 5.1-6 */
+            /*background-image: linear-gradient(to left, #46238643, #eded1426,  #14ed2235);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /*solid, linear - 선*/
+            /*display:none; - 화면에서도 안보이고, 공간으로서도 표시되지 않음*/
+            /*visibility: hidden; -화면에서 안보이나, 공간은 예상이 됨*/
+            display: inline-block;
+        }
+
+        .테두리 {
+            /*width: 500px; - 가로*/
+            /*border-radius: 10px 0 0 10px; - 모서리 둥글게 하는 속성*/
+            /*border-color: darkcyan; - 선 색상*/
+            /*border-width:thick; - 두께*/
+            /*border-style:double;- 선 스타일 outset, inset, groove, ridge-입체 선, double-이중선, solid-실선, dashed-긴 점선 , dotted-동글 점선*/
+            border-top: 3px solid red;
+            border-bottom: 5px dashed blueviolet;
+            border-left: 2px dotted dodgerblue;
+            border-right: 6px groove green;
+            width: 500px;
+            height: 300px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee>텍스트텍스트</marquee>
+    <article>
+        <div class="공간">
+            <img src="./학생1.jpg" alt="학생이미지" width="150" height="150">
+            <img src="./학생1.jpg" alt="학생이미지" width="150" height="150">
+            <img src="./학생1.jpg" alt="학생이미지" width="150" height="150">
+            <p class="테두리">오늘은 즐거운 <span>화요일</span>입니다.</p>
+            <p class="테두리">내일은 더 즐거운 <span>수요일</span>입니다.</p>
+            <p class="테두리">내일 모레는 더 더욱 즐거운 <span>목요일</span>입니다.</p>
+            <p class="테두리">금요일은 즐거운 토요일 전날입니다.</p>
+        </div>
+    </article>
+</body>
+
+</html>
