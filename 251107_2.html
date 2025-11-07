@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 300px;
+        background-color: blueviolet;
+        display: flex; /*가로로 줄 세움 - 가상의 줄 한 줄 공간을 가로로 100% 다 차지*/
+        justify-content: center; /*가로 가운데 정렬 (tr)*/
+        align-items: center; /*세로 가운데 정렬(td)*/
+        gap: 16px;
+      }
+      .boxx {
+        height: 300px;
+        background-color: brown;
+        display: inline-flex; /*가로로 줄 세움 - 친구 옆에 둘 수 있음*/
+        justify-content: center; /*가로 가운데 정렬 (tr)*/
+        align-items: center; /*세로 가운데 정렬(td)*/
+        gap: 16px;
+      }
+      /*표준: */
+      .latte{
+        float: left;
+        margin-right: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>Lorem, ipsum.</p>
+    </div>
+    <div class="boxx">
+      <p>Lorem, ipsum.</p>
+    </div>
+    <div class="boxx">
+      <p>Lorem, ipsum.</p>
+    </div>
+    <div class="latte">
+        <p>Lorem, ipsum.</p>
+    </div>
+  </body>
+</html>

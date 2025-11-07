@@ -1,0 +1,45 @@
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+MX+Guides&display=swap');
+      .a {
+        font-size: 20px;
+        font-family: "Playwrite MX Guides", cursive;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+      }
+      /*픽셀: 화면에 보이는 색점 하나를 기준, 눈금자처럼 사용*/
+      /*sans - 장식 제거, serif - 장식*/
+      /*''<- 우선권*/
+      .b {
+        font-size: 4em;
+        font-family: monospace;
+      }
+      /*em: 현재의 글자가 직접 부모가 되어 기준을 가지는 배수 단위*/
+      /*monospace=모든 글자의 폭을 같게 주는 서체*/
+      .c {
+        font-size: large;
+        font-family: cursive;
+      }
+      /*rem: root-em, 렘, 전체 문서 html, body를 기준으로 가지는 배수 단위*/
+      /*cursive=타자기, 손글씨 느낌 (웹상 글자에 감성 추가)*/
+      .d {
+        font-size: 5vw;
+        font-family: fantasy;
+      }
+      /*vw: viewport width: 보이는 화면 너비 백분율(%) 1vw=1%
+        화면이 넓어지면 글자도 같이 커지고, 화면이 좁아지면 글자도 같이 작아짐*/
+      /*vh: viewport height: 보이는 화면 높이 백분율(%)*/
+      /*fantasy=영화제목, 로고 느낌(두꺼운)*/
+      .e {
+        font-size: 70%;
+        font-family: "Noto Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        width: 200px;
+        height: 100px;
+        color: aquamarine;
+        text-align: center;
+        line-height: 100px;
+      }
+      /*%: 자기 자신의 크기가 100% 기준 -> 줄이기만 가능*/

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>z-index + transition 예제</title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(#aee1f9, #ffffff);
+  overflow: hidden;
+}
+
+/* 풍선 기본 모양 */
+.balloon {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 150px;
+  border-radius: 70% 70% 70% 70%;
+  /*transition: all 1s ease; /*트랜지션*/
+  transition-duration: 2s; /*변화되는 시간 1s=1초*/
+  transition-delay: 3s; /*동작 전 시간*/
+  transition-timing-function: ease-in-out; /*속도의 종류*/
+  transition-property: all; /*뭘 변화시킬지?  all 전부 다*/
+  /*ease: 천천히 살짝 빨라지다가 다시 천천히 - 자연스러움 비슷한 linear 직선형
+  ease-in: 점점 빠르게
+  ease-out: 점점 천천히
+  */
+}
+
+/* 각각 다른 색 */
+.red   { background: #ff6b6b; left: 20%; z-index: 1; }
+.blue  { background: #4dabf7; left: 40%; z-index: 2; }
+.green { background: #51cf66; left: 60%; z-index: 3; }
+
+/* 풍선에 마우스를 올리면 위로 뜨게! */
+.balloon:hover {
+  bottom: 60%;
+  z-index: 10;
+  transform: scale(1.2) rotate(-10deg);
+}
+</style>
+</head>
+<body>
+
+<div class="balloon red"></div>
+<div class="balloon blue"></div>
+<div class="balloon green"></div>
+
+</body>
+</html>
