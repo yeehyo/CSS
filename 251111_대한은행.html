@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-1 대한은행</title>
+    <style>
+        /*초기설정*/
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing:border-box;
+        }
+        body{
+            background-color: #fff;
+            color: #333;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+        }
+        /*확장형 header, headerWrap을 감쌈*/
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: #0076BE;
+        }
+        /*메뉴와 로고가 들어가고 중앙 정렬하는*/
+        .headerWrap{
+            width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        /*로고*/
+        .logo{
+            width:20%;
+            display: flex; /*로고 이미지를 중앙에 위치 시키기 위해 flex로 지정*/
+            justify-content: center; /*수평 가운데 정렬*/
+            align-items: center; /*수직 가운데 정렬*/
+        }
+        /*로고이미지*/
+        .logo>img{
+            width: 200px; /*지시사항에 적힌 width값*/
+            height: 40px; /*지시사항에 적힌 height값*/
+        }
+        /*상단메뉴*/
+        .mainMenu{
+            width: 800px; /*서브메뉴랑 동일하게*/
+            height: 100%; /*header의 높이 그대로*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /*subMenu 때문에 반드시 필요*/
+        }
+        .mainMenu>a{
+            width:25%;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+        mainMenu>a:hover{
+            background-color: rgba(255,255,255,0.1);
+        }
+        .subMenu{
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            position: absolute;
+            right: 0;
+            top: 100px; /*header 높이 만큼 내려옴*/
+            z-index: 1;
+        }
+        .subMenu>ul{
+            width: 25%;
+        }
+        .subMenu>ul>li>a{
+            text-align: center;
+            padding: 10px 0;
+            color: #E66B27;
+        }
+        .subMenu>ul>li>a:hover{
+            background-color: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        /*********본문시작********/
+        /* 이미지 슬라이드와 컨텐츠를 감싸는 main*/
+        main{
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /*이미지 슬라이드*/
+        .imgSlide{
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+        .imgSlide>a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden; /*이미지 슬라이드가 좌우로 움직일때는 반드시 필요*/
+        }
+        .imgSlide a>img{height: 100%;}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="headerWrap">
+            <a class="logo" href="#">
+                <img src="./logo.png" alt="로고">
+            </a>
+            <!--메인메뉴-->
+            <nav class="mainMenu">
+                <a href="#">개인</a>
+                <a href="#">기업</a>
+                <a href="#">금융상품</a>
+                <a href="#">카드</a>
+            </nav>
+            <!--서브메뉴-->
+            <nav class="subMenu">
+                <ul>
+                    <li><a href="#">조회</a></li>
+                    <li><a href="#">이체</a></li>
+                    <li><a href="#">공과금</a></li>
+                    <li><a href="#">예금/신탁</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">조회</a></li>
+                    <li><a href="#">이체</a></li>
+                    <li><a href="#">전자결재</a></li>
+                    <li><a href="#">수표/어음</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">저축상품</a></li>
+                    <li><a href="#">대출상품</a></li>
+                    <li><a href="#">투자상품</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">카드 정보</a></li>
+                    <li><a href="#">카드 신청</a></li>
+                    <li><a href="#">이용내역조회</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!--이미지슬라이드-->
+        <div class="imgSlide">
+            <a href="#"><img src="https://i.pinimg.com/736x/5e/0a/57/5e0a57534ae6e4bb22e5b969fc408dfe.jpg" alt="슬라이드1"></a>
+            <a href="#"><img src="https://i.pinimg.com/736x/15/3c/71/153c71ea218280a018d901287568e345.jpg" alt="슬라이드2"></a>
+            <a href="#"><img src="https://i.pinimg.com/736x/05/a1/34/05a1341b7039a92750cebe21b3014c78.jpg" alt="슬라이드3"></a>
+        </div>
+    </main>
+    
+    <script>
+        $(document).ready(function(){
+            //**** 마우스 오버 ****//
+            //서브메뉴 숨기고 시작//
+            $(".subMenu").hide(););
+            //마우스 오버
+            //$(".mainMenu").mouseover(function(){
+            //    $(".subMenu").stop().slideDown(300);
+            //}).mouseout(function(){
+            //    $(".subMenu").stop().slideUp(300);
+            //});
+        //});
+    </script>
+
+</body>
+</html>
