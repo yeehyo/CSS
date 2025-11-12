@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*flex모드로 한다면
+        .gallery{
+            /*4칸짜리, 같은 비율
+            display: flex; /*가로로 정렬
+            flex-wrap: wrap; /*
+            justify-content: center; /*가운데 정렬
+            gap: 10px;
+            background-color: yellowgreen;
+            padding: 10px;
+        }
+        .gallery>div{
+            background-color: green;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 200px;
+            font-size: 40px;
+        }
+        */
+      /*grid 모드로 한다면*/
+      .gallery {
+        display: grid;
+        /*grid-template-columns: repeat(4, 1fr); 4칸짜리 같은 비율로*/
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /*최소 고정비 200px, 거기에서 벗어나면 각자 1비율 값을 나눠갖고, 화면이 줄어들면 자동 줄바꿈*/
+
+        gap: 10px; /*칸 사이 여백*/
+      }
+      .gallery > div {
+        background-color: antiquewhite;
+        border: 2px solid black;
+        font-size: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <div>🍀</div>
+      <div>🌸</div>
+      <div>🌙</div>
+      <div>🌟</div>
+      <div>🍎</div>
+      <div>🍑</div>
+      <div>🍍</div>
+      <div>🍉</div>
+    </div>
+  </body>
+</html>

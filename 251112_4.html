@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid{
+            display: grid;
+            grid-template-columns:2fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: yellowgreen;
+            gap: 16px;
+            padding: 8px;
+        }
+        .grid > div{
+            background-color: blue;
+            color: aliceblue;
+            border: 1px solid wheat;
+            text-align: center;
+            padding: 12px;
+            font-weight: 800;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <div class="grid">
+  <div>사과</div>
+  <div>바나나</div>
+  <div>포도</div>
+</div>
+</body>
+</html>
