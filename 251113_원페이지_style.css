@@ -1,0 +1,444 @@
+@charset "UTF-8";
+
+/* ===========================================================
+   COLORS
+   - 사이트 전체에서 공통으로 쓸 색깔 변수를 모아둔 곳입니다.
+   - var(--이름) 으로 불러와서 사용합니다.
+   - 아래 값들을 보고 색 이름과 코드가 어떻게 연결되는지 익혀보세요.
+   - ★ 빈칸에 맞는 색 코드를 유추해보세요.
+=========================================================== */
+:root {
+    --light-blue: #4db1ec;
+    --blue: #1665cc;
+    --purple: #b473bf;
+    --pink: #ffb2c1;
+    --orange: #ff9f67;
+    --yellow: #ffd673;
+    --light-green: #a2e29b;
+    --green: #00a2af;
+    --grey: #333;   /* 힌트: 거의 검은색 진한 회색 (#333) */
+    --white: #fff;  /* 힌트: 흰색 (#fff) */
+    --black: #000;
+
+    /* ✏ 직접 추가해보기: 새로운 색 변수를 1개 만들어 보세요.
+       예시) --black: #000;
+    */
+    /* --black: _______; */
+}
+
+/* ===========================================================
+   GENERAL STYLING
+   - html, body, 기본 텍스트 스타일
+   - 전체 페이지의 '기본값'을 정하는 곳입니다.
+=========================================================== */
+html {
+    font-size: 100%;        /* 힌트: 브라우저 기본 글자 크기 100% */
+    /* 스무스 스크롤: 클릭시 부드럽게 해당 위치로 이동 */
+    scroll-behavior: smooth;  /* 힌트: smooth / auto 중 하나 */
+}
+
+body {
+	color: var(--grey);           /* 힌트: 기본 글자색 → var(--grey) */
+	font-family: Verdana, Geneva, Tahoma, sans-serif;     /* 힌트: 고딕 계열 기본 폰트 → sans-serif */
+}
+
+/* 공통 텍스트 스타일 */
+p {
+    line-height: 1.7rem;      /* 힌트: 줄간격 1.7 정도 */
+}
+
+img {
+    max-width: 100%;        /* 힌트: 부모박스보다 커지지 않게 100% */
+}
+
+/* h2 기본 스타일 */
+h2 {
+    font-size: 3rem;        /* 힌트: 3rem */
+    margin-bottom: 2rem;    /* 힌트: 아래 여백 2rem */
+}
+
+/* 큰 제목, 부제목 가운데 정렬 */
+h1,
+h2 {
+    text-align: center;       /* 힌트: center / left / right 중 */
+}
+
+/* 헤더/타이틀 폰트 */
+header,
+h1,
+h2,
+.hero-date {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;      /* 힌트: impact, sans-serif */
+}
+
+/* ===========================================================
+   COMMON LAYOUT
+   - wrapper: 가운데 정렬과 최대 폭을 담당
+=========================================================== */
+.wrapper {
+    max-width: 800px;   /* 힌트: 최대 폭 800px */
+    width: 100%;       /* 힌트: 작은 화면에서 꽉 채우기 → 100% */
+    margin: 0 auto;       /* 힌트: 좌우 auto → 수평 가운데 정렬 */
+    padding: 0 1rem;   /* 힌트: 좌우 안쪽 여백 1rem */
+}
+
+/* ===========================================================
+   HEADER
+   - 상단 고정 메뉴바 영역
+=========================================================== */
+header {
+    background: var(--grey);       /* 힌트: var(--grey) */
+    padding: 1rem 0;          /* 힌트: 위아래 1rem 0 */
+    position: fixed;        /* 힌트: 스크롤해도 위에 붙어있게 → fixed */
+    width: 100%;            /* 힌트: 가로 전체 → 100% */
+    z-index: 1;          /* 힌트: 다른 요소보다 위 → 1 정도 */
+}
+
+/* header 안의 wrapper: 양쪽으로 정렬 */
+header .wrapper {
+    display: flex;          /* 힌트: 가로 배치 → flex */
+    justify-content: space-between;  /* 힌트: space-between */
+}
+
+/* 로고/메뉴 기본 링크 스타일 */
+header a {
+    color: var(--white);           /* 힌트: var(--white) */
+    font-size: 1.5rem;        /* 힌트: 1.5rem */
+}
+
+/* 모바일에서 보이는 메뉴 버튼 */
+.btn-menu {
+    position: absolute;               /* 힌트: header 안에서 위치 지정 → absolute */
+    top: 12px;                    /* 힌트: 12px */
+    right: 12px;                  /* 힌트: 12px */
+    border: 1px solid rgba(255,255,255, .5);
+    color: var(--white);                  /* 힌트: var(--white) */
+    padding: .5rem 1rem;         /* 힌트: 좌우 1rem */
+}
+
+/* ===========================================================
+   NAV (메인 메뉴)
+   - 처음에는 숨겨져 있다가, .open-menu 클래스가 붙으면 펼쳐짐
+=========================================================== */
+.main-nav {
+    background: var(--grey);             /* 힌트: var(--grey) */
+    width: 0;                   /* 힌트: 처음엔 0 → 안 보이게 */
+    position: absolute;               /* 힌트: absolute */
+    z-index: 2;                 /* 힌트: 2 */
+    top: 50px;                    /* 힌트: header 아래 → 50px */
+    right: 0;
+    overflow: hidden;               /* 힌트: 내용 넘치면 숨김 → hidden */
+    transition: 0.5s;              /* 힌트: .5s */
+}
+
+.main-nav li {
+    text-align: center;              /* 힌트: center */
+    margin: 2rem 0;          /* 힌트: 위아래 2rem, 좌우 0 → 2rem 0 */
+}
+
+.main-nav a {
+    display: block;                 /* 힌트: block 로 넓게 클릭 가능하게 */
+}
+
+/* 버튼 클릭 후 메뉴가 열렸을 때 */
+.main-nav.open-menu {
+    width: 100%;                   /* 힌트: 화면 전체 → 100% */
+}
+
+/* ===========================================================
+   HERO
+   - 맨 위 큰 이미지 + 타이틀 영역
+=========================================================== */
+#hero {
+    /* shorthand 말고 하나씩 나눠쓴 버전 */
+    background-color: var(--light-blue);       /* 힌트: var(--light-blue) */
+    background-image: url('../images/hero.jpg'); /* 힌트: ../images/hero.jpg */
+    background-repeat: no-repeat;      /* 힌트: no-repeat */
+    background-position: center;    /* 힌트: center */
+    background-size: cover;        /* 힌트: cover */
+    background-blend-mode: screen;  /* 힌트: screen */
+
+    animation: var(--purple) 24s infinite; /* 힌트: bg-color */
+
+    height: 100vh;                 /* 힌트: 화면 높이 100vh */
+    display: flex;                /* 힌트: flex */
+    align-items: center;            /* 힌트: center */
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+/* 배경색이 여러 색으로 바뀌는 애니메이션 */
+@keyframes bg-color {
+    0% {   background-color: var(--light-blue); }   /* 힌트: var(--light-blue) */
+    12.5% { background-color: var(--blue); }  /* 힌트: var(--blue) */
+    25% {  background-color: var(--purple); }   /* 힌트: var(--purple) */
+    37.5% {background-color: var(--pink); }   /* 힌트: var(--pink) */
+    50% {  background-color: var(--orange); }   /* 힌트: var(--orange) */
+    62.5% {background-color: var(--yellow); }   /* 힌트: var(--yellow) */
+    75% {  background-color: var(--light-green); }   /* 힌트: var(--light-green) */
+    87.5% {background-color: var(--green); }   /* 힌트: var(--green) */
+    100% { background-color: var(--light-blue); }   /* 힌트: 다시 var(--light-blue) */
+}
+
+/* HERO 안의 제목 */
+#hero h1 {
+    font-size: 3.5rem;              /* 힌트: 3.5rem */
+    margin-bottom: 1.5rem;          /* 힌트: 1.5rem */
+}
+
+/* 날짜 표시 */
+.hero-date {
+    text-align: center;             /* 힌트: center */
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+    padding: .5rem 0;
+    font-size: 1.5rem;              /* 힌트: 1.5rem */
+    margin-bottom: 1.5rem;          /* 힌트: 1.5rem */
+}
+
+/* ===========================================================
+   ABOUT
+=========================================================== */
+#about {
+    padding: 4rem 1rem;         /* 힌트: 위아래 4rem, 좌우 1rem */
+}
+
+/* ABOUT 제목 텍스트 그라디언트 */
+#about h2 {
+  background: linear-gradient(var(--yellow),var(--orange));
+  /* 힌트: (var(--yellow), var(--orange)) */
+
+  -webkit-background-clip: text;  /* 힌트: text */
+  background-clip: text;          /* 힌트: text */
+  -webkit-text-fill-color: transparent;  /* 힌트: transparent */
+  /*text-fill-color: transparent;          /* 힌트: transparent (구형 브라우저용) */
+}
+
+#about p {
+    margin-bottom: 2rem;           /* 힌트: 2rem */
+}
+
+/* ===========================================================
+   NEWS
+=========================================================== */
+#news {
+    background-image: linear-gradient(var(--light-blue),var(--green));
+    /* 힌트: (var(--light-green), var(--green)) */
+
+    padding: 7rem 0;               /* 힌트: 위아래 7rem */
+
+    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+#news h2 {
+    color: var(--white);                  /* 힌트: var(--white) */
+}
+
+.news-table {
+    color: var(--white);                  /* 힌트: var(--white) */
+    width: 100%;                   /* 힌트: 100% */
+}
+
+.news-table td {
+    border-bottom: 1px solid rgba(255,255,255, 1);
+    /* 힌트: 0.5 (0.5 투명도) */
+}
+
+.news-table td {
+    display: block;                 /* 힌트: 모바일에서 블록 배치 → block */
+    line-height: 1.5;             /* 힌트: 1.5 */
+}
+
+/* 날짜 셀 */
+.news-date {
+    font-size: .875rem;
+    padding-top: 1rem;             /* 힌트: 1rem */
+}
+
+/* 내용 셀 */
+.news-content {
+    padding-bottom: 1rem;          /* 힌트: 1rem */
+}
+
+/* ===========================================================
+   SPEAKERS
+=========================================================== */
+#speakers {
+    padding: 4rem 1rem;         /* 힌트: 4rem 1rem */
+}
+
+/* 스피커 전체 레이아웃 (이미지 + 텍스트) */
+.speakers-list {
+    display: flex;                 /* 힌트: flex */
+    flex-direction: row-reverse;         /* 힌트: row-reverse */
+    align-items: flex-start;            /* 힌트: flex-start */
+    margin-bottom: 2rem;           /* 힌트: 2rem */
+}
+
+/* 텍스트 박스 */
+.speakers-text {
+    margin-left: 1rem;             /* 힌트: 1rem */
+}
+
+/* SPEAKERS 제목 색 그라디언트 */
+#speakers h2 {
+  background: linear-gradient(var(--light-blue),var(--blue));
+  /* 힌트: (var(--light-blue), var(--blue)) */
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /*text-fill-color: transparent;*/
+}
+
+/* 스피커 이름 */
+#speakers h3 {
+    font-size: 1.5rem;              /* 힌트: 1.5rem */
+    margin-bottom: 0.5rem;          /* 힌트: 0.5rem (.5rem) */
+}
+
+/* 스피커 사진 */
+#speakers img {
+    border-radius: 50%;           /* 힌트: 50% → 동그라미 */
+    width: 20%;                   /* 힌트: 20% */
+}
+
+/* ===========================================================
+   TICKET
+=========================================================== */
+#ticket {
+    background-image: linear-gradient(var(--pink),var(--purple));
+    /* 힌트: (var(--pink), var(--purple)) */
+
+    padding: 6rem 1rem 2rem; /* 힌트: 6rem 1rem 2rem */
+
+    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+#ticket h2 {
+    color: var(--white);                  /* 힌트: var(--white) */
+}
+
+.ticket-form {
+    max-width: 480px;               /* 힌트: 480px */
+    margin: 0 auto 5rem;           /* 힌트: 아래 여백 5rem */
+}
+
+.ticket-form label {
+    color: var(--white);                  /* 힌트: var(--white) */
+    display: block;                 /* 힌트: block */
+    margin-bottom: .5rem;           /* 힌트: .5rem */
+}
+
+/* 입력 필드 공통 */
+.ticket-field {
+    background: rgba(255,255,255, 0.6); /* 힌트: 0.6 (60% 불투명) */
+    padding: 1rem;               /* 힌트: 1rem */
+    width: 100%;                 /* 힌트: 100% */
+    margin-bottom: 1.5rem;         /* 힌트: 1.5rem */
+}
+
+/* 버튼 스타일 */
+.ticket-btn {
+    background: var(--grey);           /* 힌트: var(--grey) */
+    color: var(--white);                /* 힌트: var(--white) */
+    display: block;               /* 힌트: block */
+    width: 100%;                 /* 힌트: 100% */
+    padding: 1rem;               /* 힌트: 1rem */
+    margin-top: 1rem;            /* 힌트: 1rem */
+}
+
+/* ===========================================================
+   FOOTER
+=========================================================== */
+.footer {
+    border-top: 1px solid rgba(255,255,255, 0.5);
+    /* 힌트: 0.5 */
+
+    padding-top: 2rem;           /* 힌트: 2rem */
+    text-align: center;            /* 힌트: center */
+    font-size: 0.875rem;            /* 힌트: .875rem */
+    color: var(--white);                /* 힌트: var(--white) */
+}
+
+.footer a {
+    text-decoration: underline;       /* 힌트: underline */
+}
+
+/* ===========================================================
+   DESKTOP SIZE
+   - 화면 폭이 600px 이상일 때 적용
+=========================================================== */
+@media (min-width: 600px) {
+
+    /* 공통: 큰 화면에서 제목 키우기 */
+    h2 {
+        font-size: 5rem;        /* 힌트: 5rem */
+    }
+
+    a:hover,
+    .ticket-btn:hover {
+        transition: .3s;        /* 힌트: .3s */
+    }
+
+    a:hover {
+        color: var(--blue);            /* 힌트: var(--blue) */
+    }
+
+    .ticket-btn:hover {
+        background: var(--blue);       /* 힌트: var(--blue) */
+    }
+
+    /* Header - 데스크탑에서는 메뉴 버튼 숨기고, nav를 가로로 펼침 */
+    .btn-menu {
+        display: none;           /* 힌트: none */
+    }
+
+    .main-nav {
+        width: 100%;             /* 힌트: 100% */
+        position: static;          /* 힌트: static */
+        display: flex;           /* 힌트: flex */
+    }
+
+    .main-nav li {
+        margin: 0 0 0 1.5rem;      /* 힌트: 왼쪽으로 1.5rem */
+    }
+
+    /* Hero - 큰 화면에서 더 큰 글씨 */
+    #hero h1 {
+        font-size: 6.875rem;        /* 힌트: 6.875rem */
+    }
+
+    .hero-date {
+        font-size: 3rem;        /* 힌트: 3rem */
+    }
+
+    /* News - 데스크탑에서 표 구조로 변경 */
+    .news-table td {
+        display: table-cell;           /* 힌트: table-cell */
+    }
+
+    .news-date {
+        padding: 1.125rem 0 1rem 1rem;
+    }
+
+    .news-content {
+        padding: 1rem 1rem 1rem 0;
+    }
+
+    /* Speakers - 여백 조정 */
+    #speakers h2 {
+        margin-bottom: 4rem;      /* 힌트: 4rem */
+    }
+
+    .speakers-list {
+        margin-bottom: 3rem;      /* 힌트: 3rem */
+    }
+
+    .speakers-text {
+        margin-left: 2rem;        /* 힌트: 2rem */
+    }
+}

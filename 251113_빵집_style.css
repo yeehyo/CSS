@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/*글꼴 크기, 기본 설정*/
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #555;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+/*공통 제목 스타일*/
+.title {
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 7rem;
+    margin-bottom: 30px;
+}
+/*페이지 전체 스크롤*/
+.container {
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+/*배경 이미지 넣기 / 가운데 정렬 및 레이아웃*/
+.hero {
+    background-image: url('../images/bread1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: cente r center;
+    text-align: center;
+    padding-top: 7vh;
+}
+.menu{
+    background-image: url('../images/bread2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+
+}
+.contact{
+    background-image: url('../images/cafe.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    padding-top: 7vh;
+}
+.wrapper{ /*menu 섹션 가운데 정렬*/
+    max-width: 900px;
+    margin: 0 300px;
+}
+tr{
+    margin-bottom: 2rem;
+}
+td{
+    margin-left: 1.5rem;
+}
+
+/*버튼, sns아이콘*/
+.btn{
+    background-color: brown;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 100px;
+    display: inline-block;
+    text-decoration: none;
+    color: aliceblue;
+}
+.contact-sns{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.contact-sns a{
+    background-color: antiquewhite;
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+/*미디어 스크린 (모바일 화면비)*/
+@media (max-width: 640px) { /*640px까지 보이는 화면*/
+    .title{
+        font-size: 3.5rem;
+    }
+    p{
+        padding: 1rem;
+    }
+    p, li{
+        font-size: 1rem;
+    }
+    .hero{
+        padding-top: 13vh;
+    }
+}
