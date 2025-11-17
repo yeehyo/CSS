@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스커서바꾸기</title>
+    <style>
+        .pp{
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid cadetblue;
+            font-size: 20px;
+        }
+        /*커서종류*/
+        .pointer{
+            cursor: pointer;
+        }
+        .crosshair{
+            cursor: crosshair;
+        }
+        .wait{
+            cursor: wait;
+        }
+        .help{
+            cursor: help;
+        }
+        .not{
+            cursor: not-allowed;
+        }
+        .move{
+            cursor: move;
+        }
+        .text{
+            cursor: text;
+        }
+        .custom{
+            cursor: url('./Running\ Cat\ 1.svg'), auto;
+            /*이미지 사이즈 때문에 안나올 수 있음 보통 24~32px
+            커스텀 되는 커서 조건
+            1. png, svg, cur
+            2. max 24~32px*/
+            /*https://img.icons8.com/?size=100&id=0nBGtKqeYc7N&format=png&color=000000*/
+        }
+    </style>
+</head>
+<body>
+    <div class="pp pointer">포인터(손가락모양)</div>
+    <div class="pp crosshair">크로스헤어(좌표모양)</div>
+    <div class="pp wait">웨잇(로딩중,모래시계)</div>
+    <div class="pp help">헬프(물음표)</div>
+    <div class="pp not">낫(접근금지표시)</div>
+    <div class="pp move">무브(이동)</div>
+    <div class="pp custom">커스텀(내이미지)</div>
+</body>
+</html>

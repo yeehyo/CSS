@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display:레이아웃 정하는 대표 속성 중 1</title>
+</head>
+<body>
+    <div style="background-color: antiquewhite; display: block;">
+        나는 블록<br>
+        한 줄에 하나만 들어차는 녀석이지<br>
+        항상 줄바꿈 되지<br>
+        내 폭은 항상 100% 차지되지
+    </div>
+    <div style="background-color:aquamarine; display: inline;">
+        나는 인라인<br>
+        글자처럼 행동하지<br>
+        줄바꿈을 안하려 하지<br>
+        높이 외부 폭까지는 조절 못하지<br>
+    </div>
+    <div style="background-color:blueviolet; display: inline-block; height: 100px; width: 100px;">
+        나는 하이브리드<br>
+        inline처럼 글자같이 행동해서 옆으로 배치되지만<br>
+        block처럼 높이, 폭 모두 세팅이 가능하지<br>
+    </div>
+    <div style="display: none;">
+        나는 안보이지<br>
+    </div>
+    <!--요즘 많이 쓰는것들-->
+    <div style="display: flex; gap: 10px;">
+        <siv style="background-color:chocolate;">나는 수리 <br>플렉스는 제일 많이 쓰이는 방식이지</siv>
+        <siv style="background-color:brown;">나는 구리<br>아이템을 가로 세로 정렬할 때 최고지</siv>
+        <siv style="background-color:coral;">나는 두리<br></siv>
+    </div>
+    <div style="display: grid;">
+        <div style="background-color: crimson;">나는 첫번째 칸, 그리드는 칸을 정확히 나눠어 보고싶을 때 최적이지</div>
+        <div style="background-color:cornflowerblue">나는 두번째 칸, 디자인 레이아웃 잡을 때는 내가 많이 쓰이지</div>
+    </div>
+    <div style="display: table;">
+        <div style="display: table-row;">
+            <div style="display: table-cell; background-color: cadetblue;">내가 그 테이블의 td 같은 녀석일세1</div>
+            <div style="display: table-cell; background-color: cadetblue;">내가 그 테이블의 td 같은 녀석일세2</div>
+        </div>
+    </div>
+    <div style="display: list-item;">
+        yo 나는 ul 태그의 리스트 자녀같은 녀석으로 보여지네.
+        만일 동글뱅이 불릿이 안나오면 dl처럼 나올 수도 있네.
+    </div>
+    <div style="display: inline-flex; gap: 10px;">
+        <div>나는 한줄에 놓고 싶어서, 플렉스 에어 모드라고 보면 되네.</div>
+        <div>간단하게 옆으로 내 친구들과 같이 배치 되네.</div>
+    </div>
+        <div style="display: inline-grid; grid-template-columns: 50px 50px;">
+        <div>나는 한줄에 놓고 싶어서, 그리드 에어 모드라고 보면 되네.</div>
+        <div>간단하게 옆으로 내 친구들과 같이 배치 되지만, 한 줄 짜리 그리드로 보면 되네.</div>
+    </div>
+    <ul>
+        <li>가로 정렬을 원하십니까? 플렉스= (밴드로 묶은 다발)를 쓰세요</li>
+        <li>세로 정렬을 원하십니까? 플렉스를 쓰세요</li>
+        <li>표 같은 정렬을 원하십니까? 그리드= (바둑판)를 쓰세요</li>
+        <li>그리드가 어렵습니까? 테이블을 쓰세요 =(엑셀 표)(레트로하긴 하지만)</li>
+        <li>글자처럼 옆으로 배치하고 싶나요? 인라인 =(어묵꼬치)을 쓰세요 (단 높이 여백은 책임 못집니다)</li>
+        <li>블록처럼 뚝뚝 다음 줄로 배치하고 싶나요? 블록=(벽돌)을 쓰세요</li>
+        <li>기냥 옆으로 배치하고 싶은데, 암것도 모르겠다? 인라인 블록 쓰세요</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼 CSS</title>
+    <style>
+        .btn{
+            display: inline-block;
+            padding: 20px;
+            background-color: cornflowerblue;
+            transition: all 0.3s;
+        }
+        .btn:hover{
+            /* transform: scale(2); /* 크기 n배 / 2=200% */
+            /* transform: rotate(180deg); /*deg=degree(각도)의 약자*/
+            /* transform: skew(20deg, 80deg); /*X Y 순으로 기울기*/
+            /* transform-origin: left top; /*X Y 순으로 중심 축 변경*/
+            /* transform: translate(50px, 30px); /*X Y 순으로 이동*/
+
+            /*단축속성 사용하기*/
+            transform: scale(2) rotate(45deg) translate(30px);
+        }
+
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>CSS Transform?</legend>
+    <p>box 같은 녀석을 돌리고, 키우고, 줄이고, 뒤집고, 옮길 수 있다..</p>
+    </fieldset>
+    <div class="btn">버튼</div>
+</body>
+</html>
