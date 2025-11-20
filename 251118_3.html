@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object-fit / filter</title>
+    <style>
+        img{
+            width: 800px;
+            height: 500px;
+            object-fit: none; 
+            /*이미지 찌그러지는거 방지
+            cover : 원본 비율, 넘치는 이미지는 잘림 (채우기) *가장 많이 사용
+            contain : 원본 비율, 빈 공간 생김 (맞추기)
+            fill: 억지로 끼워넣음 
+            none : 원본
+            scale-down : none, contain 중 더 작은 값*/
+            opacity: 1.0; /*transperancy=투명도, opacity=불투명도*/
+        }
+        img:hover{
+            filter: hue-rotate(90deg);
+            /*
+            grayscale(100%) : 흑백
+            blur(30px) : 흐림
+            brightness(150%) : 밝기
+            contrast(200%) : 채도
+            hue-rotate(90deg) : 색상
+            sepia(100%) : 빛바랜
+            drop-shadow(10px 10px 10px blue) : 그림자
+            */
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.pinimg.com/1200x/2b/da/3a/2bda3afde427e2e8400746525bb51c05.jpg" alt="image">
+</body>
+</html>
